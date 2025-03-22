@@ -29,25 +29,11 @@ int	main(void){
 	std::cout << "doubleA: " << doubleA << ", doubleB: " << doubleB << std::endl;
 	PrintWithBlueColor("- After swap");
 	swap(doubleA, doubleB);
-std::cout << "doubleA: " << doubleA << ", doubleB: " << doubleB << std::endl;
+	std::cout << "doubleA: " << doubleA << ", doubleB: " << doubleB << std::endl;
 	PrintWithBlueColor("- Result of max(doubleA, doubleB)");
 	std::cout << max(doubleA, doubleB) << std::endl;
 	PrintWithBlueColor("- Result of min(doubleA, doubleB)");
 	std::cout << min(doubleA, doubleB) << std::endl;
-
-	float floatA = 42.42;
-	float floatB = 42.42;
-	PrintWithBlueColor("\n<< float >>");
-	PrintWithBlueColor("- Before operation");
-	std::cout << "floatA: " << floatA << ", floatB: " << floatB << std::endl;
-	PrintWithBlueColor("- After swap");
-	swap(floatA, floatB);
-	std::cout << "floatA: " << floatA << ", floatB: " << floatB << std::endl;
-	PrintWithBlueColor("- Result of max(floatA, floatB)");
-	std::cout << max(floatA, floatB) << std::endl;
-	PrintWithBlueColor("- Result of min(floatA, floatB)");
-	std::cout << min(floatA, floatB) << std::endl;
-
 
 	char charA = 42;
 	char charB = 43;
@@ -74,4 +60,6 @@ std::cout << "doubleA: " << doubleA << ", doubleB: " << doubleB << std::endl;
 	std::cout << max(stringA, stringB) << std::endl;
 	PrintWithBlueColor("- Result of min(stringA, stringB)");
 	std::cout << min(stringA, stringB) << std::endl;
+
+	return 0;
 }
