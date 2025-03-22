@@ -13,37 +13,37 @@ int	main(void){
 	size_t intArrSize = size_t(sizeof(intArr)/sizeof(int));
 	PrintWithBlueColor("<< int array >>");
 	PrintWithBlueColor("- Before operation");
-	printArray(intArr, intArrSize);
+	iter(intArr, intArrSize, print);
 	PrintWithBlueColor("- After increment");
 	iter(intArr, intArrSize, increment);
-	printArray(intArr, intArrSize);
+	iter(intArr, intArrSize, print);
 	PrintWithBlueColor("- After decrement");
 	iter(intArr, intArrSize, decrement);
-	printArray(intArr, intArrSize);
+	iter(intArr, intArrSize, print);
 
 	double doubleArr[] = {1.2, 2.3, 3.4, 4.5};
 	size_t doubleArrSize = size_t(sizeof(doubleArr)/sizeof(double));
 	PrintWithBlueColor("\n<< double array >>");
 	PrintWithBlueColor("- Before operation");
-	printArray(doubleArr, doubleArrSize);
+	iter(doubleArr, doubleArrSize, print);
 	PrintWithBlueColor("- After increment");
 	iter(doubleArr, doubleArrSize, increment);
-	printArray(doubleArr, doubleArrSize);
+	iter(doubleArr, doubleArrSize, print);
 	PrintWithBlueColor("- After decrement");
 	iter(doubleArr, doubleArrSize, decrement);
-	printArray(doubleArr, doubleArrSize);
+	iter(doubleArr, doubleArrSize, print);
 
 	char charArr[] = {'a', 'b', 'c'};
 	size_t charArrSize = (size_t)(sizeof(charArr) / sizeof(char));
 	PrintWithBlueColor("\n<< char array >>");
 	PrintWithBlueColor("- Before operation");
-	printArray(charArr, charArrSize);
+	iter(charArr, charArrSize, print);
 	PrintWithBlueColor("- After increment");
 	iter(charArr, charArrSize, increment);
-	printArray(charArr, charArrSize);
+	iter(charArr, charArrSize, print);
 	PrintWithBlueColor("- After decrement");
 	iter(charArr, charArrSize, decrement);
-	printArray(charArr, charArrSize);	
+	iter(charArr, charArrSize, print);
 
 	return 0;
 }

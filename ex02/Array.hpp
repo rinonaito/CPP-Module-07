@@ -6,18 +6,14 @@
 
 template <typename T>
 class Array {
+	private:
+		size_t	size_;
+		T	*array_;
 	public:
-		Array(): size_(0){
-			this->array_ = new T[this->size_];
-		};
-		Array(unsigned int size) : size_(size){
-			this->array_ = new T[this->size_];
-		};
-		~Array(){
-			delete[] array_;	
-		};
-		Array(Array const &other) : size_(other.size()){
-			this->array_ = new T[this->size_];
+		Array(): size_(0), array_(new T[this->size_]){};
+		Array(unsigned int size) : size_(size), array_(new T[this->size_]){};
+		~Array(){ delete[] array_; };
+		Array(Array const &other) : size_(other.size()), array_(new T[this->size_]){
 			for (size_t index = 0; index < this->size_; index++){
 				this->array_[index] = other.array_[index];
 			}
@@ -33,39 +29,26 @@ class Array {
 			}
 			return *this;
 		};
-		size_t size() const{
-			return this->size_;
-		};
 		T &operator[](size_t index){
-			if (index < 0 || index >= this->size_
-				|| this->array_ == NULL || this->size() == 0){
-				throw new IndexOutOfRangeException();
+			if (index < 0 || index >= this->size_ || this->array_ == NULL || this->size() == 0){
+				throw std::out_of_range("index out of range");
 			}
 			return array_[index];
 		};
 		const T &operator[](size_t index) const{
-			if (index < 0 || index >= this->size()
-				|| this->array_ == NULL || this->size() == 0){
-				throw new IndexOutOfRangeException();
+			if (index < 0 || index >= this->size() || this->array_ == NULL || this->size() == 0){
+				throw std::out_of_range("index out of range");
 			}
 			return array_[index];
 		};
-
-	private:
-		T *array_;
-		size_t size_;
-		class IndexOutOfRangeException : public std::runtime_error{
-			public:
-				IndexOutOfRangeException() :
-					runtime_error("the given index is out of range"){};
-		};
+		size_t size() const{ return this->size_; };
 };
 
 template <typename T>
 std::ostream& operator<<(std::ostream &os, Array<T> const &array){
-	os << "[Array]: size: " << array.size() << "\n";
+	os << "size: " << array.size() << "\n";
 	for (size_t index = 0; index < array.size(); index++){
-		os << "\t[" << index << "]: " << array[index] << "\n";
+		os << "[" << index << "]: " << array[index] << "\n";
 	}
 	return os;
-}
+};

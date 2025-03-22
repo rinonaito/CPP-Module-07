@@ -75,6 +75,17 @@ int main(void){
 	PrintWithBlueColor("- arrayChar3");
 	std::cout << arrayChar3 << std::endl;
 
+	PrintWithBlueColor("< access with invalid index >");
+	try
+	{
+		char a = arrayChar2[100];
+		(void)a;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
 	delete arrayInt;
 	delete arrayChar;
 	delete arrayDouble;

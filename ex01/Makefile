@@ -1,4 +1,4 @@
-NAME    = template
+NAME    = ex01
 
 CC	= c++
 CFLAGS  = -Wall -Wextra -Werror -std=c++98
