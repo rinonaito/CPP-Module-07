@@ -16,8 +16,11 @@ class Array {
 		~Array(){
 			delete[] array_;	
 		};
-		Array(Array const &other){
-			*this = other;
+		Array(Array const &other) : size_(other.size()){
+			this->array_ = new T[this->size_];
+			for (size_t index = 0; index < this->size_; index++){
+				this->array_[index] = other.array_[index];
+			}
 		};
 		Array &operator=(Array const &other){
 			if (this->array_ != NULL){
@@ -35,7 +38,14 @@ class Array {
 		};
 		T &operator[](size_t index){
 			if (index < 0 || index >= this->size_
-				|| this->array_ == NULL || this->array_.size() == 0){
+				|| this->array_ == NULL || this->size() == 0){
+				throw new IndexOutOfRangeException();
+			}
+			return array_[index];
+		};
+		const T &operator[](size_t index) const{
+			if (index < 0 || index >= this->size()
+				|| this->array_ == NULL || this->size() == 0){
 				throw new IndexOutOfRangeException();
 			}
 			return array_[index];
@@ -53,7 +63,7 @@ class Array {
 
 template <typename T>
 std::ostream& operator<<(std::ostream &os, Array<T> const &array){
-	os << "[Array]:  - size: " << array.size() << "\n";
+	os << "[Array]: size: " << array.size() << "\n";
 	for (size_t index = 0; index < array.size(); index++){
 		os << "\t[" << index << "]: " << array[index] << "\n";
 	}
